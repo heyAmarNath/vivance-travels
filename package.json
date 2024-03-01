@@ -1,0 +1,32 @@
+{
+  "name": "vivance-travels",
+  "version": "1.0.0",
+  "description": "A travel booking app",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/heyAmarNath/vivance-travels.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heyAmarNath/vivance-travels/issues"
+  },
+  "homepage": "https://github.com/heyAmarNath/vivance-travels#readme",
+  "dependencies": {
+    "parcel": "^2.11.0",
+    "react": "^18.2.0",
+    "react-datepicker": "^5.0.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.1"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.35",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.1"
+  }
+}

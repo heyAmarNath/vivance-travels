@@ -1,0 +1,218 @@
+import React, { useState, useEffect, useRef } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import Traveller from "./Traveller";
+
+function BookingForm({ tripType }) {
+  const [departureAirport, setDepartureAirport] = useState("");
+  const [destinationAirport, setDestinationAirport] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+  const [departureDate, setDepartureDate] = useState("");
+  const [showDepartureSuggestions, setShowDepartureSuggestions] =
+    useState(false);
+  const [showDestinationSuggestions, setShowDestinationSuggestions] =
+    useState(false);
+  const [airportSuggestions, setAirportSuggestions] = useState([]);
+  const inputRef = useRef(null);
+  const [showTraveller, setShowTraveller] = useState(false);
+  const travellerRef = useRef(null);
+
+  const fetchAirportSuggestions = async (query) => {
+    if (query === "") {
+      setAirportSuggestions([]);
+      return;
+    }
+
+    const url = `https://vymgmt.hawan.org/index.php/ajax/get_airport_code_list?term=${query}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    setAirportSuggestions(data);
+  };
+
+  const handleInputClick = (field) => {
+    if (field === "departure") {
+      setShowDepartureSuggestions(true);
+      setShowDestinationSuggestions(false);
+    } else {
+      setShowDepartureSuggestions(false);
+      setShowDestinationSuggestions(true);
+    }
+  };
+
+  const handleInputChange = (event, field) => {
+    const query = event.target.value;
+    if (field === "departure") {
+      setDepartureAirport(query);
+    } else {
+      setDestinationAirport(query);
+    }
+
+    fetchAirportSuggestions(query);
+  };
+
+  const handleSuggestionClick = (airport, field) => {
+    if (field === "departure") {
+      setDepartureAirport(airport.value);
+      setShowDepartureSuggestions(false);
+    } else {
+      setDestinationAirport(airport.value);
+      setShowDestinationSuggestions(false);
+    }
+  };
+
+  const highlightMatchingText = (text, query) => {
+    if (!query) return text;
+
+    const regex = new RegExp(query, "gi"); // Case-insensitive matching
+    const match = text.match(regex);
+
+    if (match) {
+      const parts = text.split(regex);
+      return parts.map((part, i) => (
+        <span key={i}>
+          {i > 0 ? <b>{match[i - 1]}</b> : ""}
+          {part}
+        </span>
+      ));
+    } else {
+      return text;
+    }
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (inputRef.current && !inputRef.current.contains(event.target)) {
+        setShowDepartureSuggestions(false);
+        setShowDestinationSuggestions(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [inputRef]);
+
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (
+  //       travellerRef.current &&
+  //       !travellerRef.current.contains(event.target)
+  //     ) {
+  //       setShowTraveller(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [travellerRef]);
+
+  return (
+    <form className="bg-black bg-opacity-50 py-10 px-4 mx-44 flex justify-around items-cente">
+      {/* Departure Search box */}
+      <div>
+        <p className=" text-white">From</p>
+        <input
+          type="text"
+          value={departureAirport}
+          onClick={() => handleInputClick("departure")}
+          onChange={(event) => handleInputChange(event, "departure")}
+          ref={inputRef}
+          placeholder="Type Departure City"
+          className="px-2 py-2 text-black rounded-md w-56"
+        />
+        {showDepartureSuggestions && (
+          <ul className="absolute bg-white w-56 mt-2 rounded-md shadow-xl max-h-56 overflow-y-auto">
+            {airportSuggestions.map((airport) => (
+              <li
+                key={airport.id}
+                onClick={() => handleSuggestionClick(airport, "departure")}
+                className="border-t-slate-300 border-[1px] px-2 py-1 even:bg-gray-100 hover:cursor-pointer"
+              >
+                {highlightMatchingText(airport.value, departureAirport)}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div>
+        <p className="text-white">To</p>
+        <input
+          type="text"
+          value={destinationAirport}
+          onClick={() => handleInputClick("destination")}
+          onChange={(event) => handleInputChange(event, "destination")}
+          ref={inputRef}
+          placeholder="Type Destination City"
+          className="px-2 py-2 text-black rounded-md w-56 hover:shadow-lg outline-none hover:shadow-slate-500"
+        />
+        {showDestinationSuggestions && (
+          <ul className="absolute bg-white w-56 mt-2 rounded-md shadow-xl max-h-56 overflow-y-auto">
+            {airportSuggestions.map((airport) => (
+              <li
+                key={airport.id}
+                onClick={() => handleSuggestionClick(airport, "destination")}
+                className="border-t-slate-300 border-[1px] px-2 py-1 even:bg-gray-100 hover:cursor-pointer"
+              >
+                {highlightMatchingText(airport.value, destinationAirport)}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* Date Picker */}
+      <label className="travel-form">
+        <p className="text-white">Departure</p>
+        {/* <input type="date" placeholder="Select Date" /> */}
+        <DatePicker
+          className="px-2 py-2 text-black rounded-md"
+          placeholderText="Select Date"
+          selected={departureDate}
+          onChange={(date) => setDepartureDate(date)}
+          selectsStart
+          monthsShown={2}
+          dateFormat={"dd-MM-YYYY"}
+        />
+      </label>
+      {tripType !== "multiCity" && (
+        <label className="travel-form">
+          <p className="text-white">Return</p>
+          <DatePicker
+            className="px-2 py-2 text-black rounded-md"
+            placeholderText="Select Date"
+            selected={returnDate}
+            onChange={(date) => setReturnDate(date)}
+            selectsStart
+            monthsShown={2}
+            startDate={departureDate}
+            dateFormat={"dd-MM-YYYY"}
+            disabled={tripType !== "roundTrip"}
+          />
+        </label>
+      )}
+      <div className="self-end relative">
+        <div
+          className="px-2 py-2 text-black rounded-md bg-white"
+          onClick={() => {
+            setShowTraveller(!showTraveller);
+          }}
+        >
+          1 Traveller | Economy
+        </div>
+        {showTraveller && <Traveller ref={travellerRef} />}
+      </div>
+      <div className="self-end">
+        {/* <p className="travel-data">Search</p> */}
+        <button
+          className="py-2 px-4 bg-orange-500 text-white rounded-md hover:bg-orange-600"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  );
+}
+
+export default BookingForm;

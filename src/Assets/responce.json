@@ -1,0 +1,167 @@
+{
+  "Status": 1,
+  "Message": null,
+  "Search": {
+    "FlightDataList": {
+      "JourneyList": [
+        [
+          {
+            "FlightDetails": {
+              "Details": [
+                [
+                  {
+                    "Origin": {
+                      "AirportCode": "BOM",
+                      "CityName": "Mumbai",
+                      "AirportName": "Chhatrapati Shivaji International Airport",
+                      "DateTime": "2023-11-27 06:35:00",
+                      "Terminal": "2",
+                      "FDTV": 1701066900
+                    },
+                    "Destination": {
+                      "AirportCode": "AMD",
+                      "CityName": "Ahmedabad",
+                      "AirportName": "Ahmedabad Airport",
+                      "DateTime": "2023-11-27 07:50:00",
+                      "Terminal": "1",
+                      "FATV": 1701071400
+                    },
+                    "OperatorCode": "UK",
+                    "MarketingCompany": "UK",
+                    "marketingCompany": "UK",
+                    "DisplayOperatorCode": "UK",
+                    "ValidatingAirline": "UK",
+                    "OperatorName": "Air Vistara",
+                    "FlightNumber": "939",
+                    "CabinClass": null,
+                    "Operatedbyairline": null,
+                    "Operatedbyairlinename": null,
+                    "Duration": null,
+                    "Attr": {
+                      "Baggage": "1 piece",
+                      "CabinBaggage": null,
+                      "AvailableSeats": "9",
+                      "IsRefundable": false,
+                      "AirlineRemark": null,
+                      "IsLCC": null,
+                      "BookingClass": "E",
+                      "CabinClass": "Economy Class",
+                      "FareType": null,
+                      "AvailabilityCnxType": null
+                    },
+                    "stop_over": null,
+                    "bookingClass": "E"
+                  },
+                  {
+                    "Origin": {
+                      "AirportCode": "AMD",
+                      "CityName": "Ahmedabad",
+                      "AirportName": "Ahmedabad Airport",
+                      "DateTime": "2023-11-27 08:40:00",
+                      "Terminal": "1",
+                      "FDTV": 1701074400
+                    },
+                    "Destination": {
+                      "AirportCode": "DEL",
+                      "CityName": "Delhi",
+                      "AirportName": "Indira Gandhi International Airport",
+                      "DateTime": "2023-11-27 10:25:00",
+                      "Terminal": "3",
+                      "FATV": 1701080700
+                    },
+                    "OperatorCode": "UK",
+                    "MarketingCompany": "UK",
+                    "marketingCompany": "UK",
+                    "DisplayOperatorCode": "UK",
+                    "ValidatingAirline": "UK",
+                    "OperatorName": "Air Vistara",
+                    "FlightNumber": "946",
+                    "CabinClass": null,
+                    "Operatedbyairline": null,
+                    "Operatedbyairlinename": null,
+                    "Duration": null,
+                    "Attr": {
+                      "Baggage": "1 piece",
+                      "CabinBaggage": null,
+                      "AvailableSeats": "9",
+                      "IsRefundable": false,
+                      "AirlineRemark": null,
+                      "IsLCC": null,
+                      "BookingClass": "E",
+                      "CabinClass": "Economy Class",
+                      "FareType": null,
+                      "AvailabilityCnxType": null
+                    },
+                    "stop_over": null,
+                    "bookingClass": "E"
+                  }
+                ]
+              ]
+            },
+            "Price": {
+              "Currency": "INR",
+              "TotalDisplayFare": 6037.0,
+              "PriceBreakup": {
+                "BasicFare": 5152.0,
+                "Tax": 885.0,
+                "AgentCommission": 154.56,
+                "AgentTdsOnCommision": null
+              },
+              "PassengerBreakup": {
+                "ADT": {
+                  "BasePrice": 5152.0,
+                  "Tax": 885.0,
+                  "TotalPrice": 6037.0,
+                  "PassengerCount": 1,
+                  "FlightAttr": {
+                    "1": [
+                      {
+                        "Baggage": null,
+                        "CabinBaggage": null,
+                        "AvailableSeats": "9",
+                        "IsRefundable": false,
+                        "AirlineRemark": null,
+                        "IsLCC": null,
+                        "BookingClass": "E",
+                        "CabinClass": "Economy Class",
+                        "FareType": null,
+                        "AvailabilityCnxType": null
+                      },
+                      {
+                        "Baggage": null,
+                        "CabinBaggage": null,
+                        "AvailableSeats": "9",
+                        "IsRefundable": false,
+                        "AirlineRemark": null,
+                        "IsLCC": null,
+                        "BookingClass": "E",
+                        "CabinClass": "Economy Class",
+                        "FareType": null,
+                        "AvailabilityCnxType": null
+                      }
+                    ]
+                  }
+                },
+                "CHD": null,
+                "INF": null
+              }
+            },
+            "ResultToken": "36a21467448054cf84b7f6b9ea5dbe4f4bdd6395$8ee9ebda490eaa088b8c190c5216962ca686c903",
+            "Attr": {
+              "Baggage": null,
+              "CabinBaggage": null,
+              "AvailableSeats": null,
+              "IsRefundable": false,
+              "AirlineRemark": null,
+              "IsLCC": null,
+              "BookingClass": null,
+              "CabinClass": null,
+              "FareType": null,
+              "AvailabilityCnxType": null
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

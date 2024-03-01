@@ -1,0 +1,198 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: border-box;
+}
+
+body {
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url('https://vivancetravels.com/extras/system/template_list/template_v1/images/TMX1512291534825461beautiful-island-with-a-sandy-beach-and-boat-blue-water-117-medium.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.header {
+    padding: 0.5rem 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    align-items: center;
+}
+
+.signin-signup-btn {
+    margin-left: auto;
+    margin-right: 2rem;
+    font-size: medium;
+    color: #05058d;
+}
+
+.logo-img {
+    height: 63px;
+    margin-right: 8rem;
+}
+
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-items {
+    padding-top: 0.5rem;
+    color: #05058d;
+}
+
+.flight-img {
+    padding: 2px;
+    width: 2rem;
+}
+
+
+.signin-signup-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.trip-type-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.trip-btn {
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    font-size: 16px;
+    margin: 20px 5px;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #f08622;
+    color: #fff;
+    font-size: 16px;
+}
+
+
+
+.booking-form {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid grey;
+    margin: 0px 10%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    color: white;
+    align-items: center;
+}
+
+.city-search {
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+
+}
+
+.date-selection {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+
+}
+
+.city-search:visited,
+.date-selection:visited {
+    box-sizing: border-box;
+    border: 20px solid rgb(224, 108, 120);
+}
+
+.city-search:focus,
+.date-selection:focus {
+    box-sizing: border-box;
+    border: 1px solid #66afe9;
+    outline: none;
+
+}
+
+.travel-data {
+    padding: 10px 0px 0px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.search-btn {
+    background-color: #f08622;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 30px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+
+
+.travel-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.traveller-btn {
+    background-color: white;
+    color: black;
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.suggestion-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    /* border: 1px solid #ccc; */
+    list-style: none;
+    padding: 0;
+    color: black;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion-box>li {
+    padding: 10px;
+    border-bottom: 0.1px solid grey;
+}
+
+.suggestion-box li:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.suggestion-box>li:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    color: #05058d;
+
+}
+
+.traveller-modal {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    /* border: 1px solid #ccc; */
+    list-style: none;
+    margin-top: 5px;
+    padding: 0;
+    color: black;
+    z-index: 10;
+}
